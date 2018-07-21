@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>First firebase webapp</title>
+</head>
+<body>
+	<h1 id="h1Elem"></h1>
+	<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "FILL_IN_WITH_YOUR_OWN_DATA",
+	    authDomain: "FILL_IN_WITH_YOUR_OWN_DATA",
+	    databaseURL: "FILL_IN_WITH_YOUR_OWN_DATA",
+	    projectId: "FILL_IN_WITH_YOUR_OWN_DATA",
+	    storageBucket: "",
+	    messagingSenderId: "FILL_IN_WITH_YOUR_OWN_DATA"
+	  };
+	  firebase.initializeApp(config);
+	  var h1Elem = document.getElementById('h1Elem');
+	  var dbRef = firebase.database().ref().child('text');
+	  dbRef.on('value', snap => h1Elem.innerText = snap.val());
+	</script>
+</body>
+</html>
